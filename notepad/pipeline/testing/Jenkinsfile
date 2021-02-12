@@ -1,4 +1,4 @@
-podTemplate(label: 'testing', serviceAccount: 'jenkins', 
+podTemplate(label: 'testing',  
   containers: [
     containerTemplate(name: 'kubectl', image: 'jorgeacetozi/kubectl:1.7.0', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'mysql', image: 'mysql:5.7', envVars: [
@@ -58,6 +58,8 @@ podTemplate(label: 'testing', serviceAccount: 'jenkins',
 
           kubectl apply -f notepad/k8s/testing/ -l app=mysql
           sleep 20
+
+          k get nodes
 
           kubectl apply -f notepad/k8s/testing/ -l app=notepad
           kubectl rollout status deployment notepad-deployment-testing
