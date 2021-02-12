@@ -44,11 +44,11 @@ podTemplate(label: 'testing', serviceAccount: 'jenkins',
       }
     }
 
-    stage('Destroy the Testing environment if it exists') {
-      container('kubectl') {
-        sh 'kubectl delete all -l env=testing'
-      }
-    }
+    // stage('Destroy the Testing environment if it exists') {
+    //   container('kubectl') {
+    //     sh 'kubectl delete all -l env=testing'
+    //   }
+    // }
 
     stage('Start a new Testing environment') {
       container('kubectl') {
