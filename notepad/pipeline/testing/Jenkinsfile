@@ -56,9 +56,12 @@ podTemplate(label: 'testing', serviceAccount: 'jenkins',
         sh """
           sed -i "s/NOTEPAD_CONTAINER_IMAGE/${DOCKERHUB_USERNAME}\\/${image_name}:${GIT_BRANCH}/" ./notepad/k8s/testing/notepad-testing-deployment.yaml
 
+          echo "TEST"
+
           kubectl apply -f notepad/k8s/testing/ -l app=mysql
           sleep 20
 
+          echo "TEST DONE"
           k get nodes
 
           kubectl apply -f notepad/k8s/testing/ -l app=notepad
