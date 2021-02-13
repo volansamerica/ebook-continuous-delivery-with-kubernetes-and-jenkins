@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: mysql-service-testing
   labels:
-    app: mysql1
+    app: mysql
     env: testing
 spec:
   selector:
-    app: mysql1
+    app: mysql
     env: testing
   ports:
   - protocol: TCP
