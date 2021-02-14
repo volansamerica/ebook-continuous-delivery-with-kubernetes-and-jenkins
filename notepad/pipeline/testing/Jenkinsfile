@@ -63,7 +63,6 @@ podTemplate(label: 'testing', serviceAccount: 'jenkins',
           sleep 20
 
           echo "TEST DONE"
-          kubectl get nodes
 
           kubectl apply -f notepad/k8s/testing/ -l app=notepad
           kubectl rollout status deployment notepad-deployment-testing
