@@ -59,11 +59,11 @@ podTemplate(label: 'testing', serviceAccount: 'jenkins',
 
           echo "TEST"
 
-          kubectl apply -f notepad/k8s/testing/mysql-testing-service.yaml -l app=mysql --validate=false
+          kubectl apply -f notepad/k8s/testing -l app=mysql --validate=false
           sleep 20
 
           echo "TEST DONE"
-          k get nodes
+          kubectl get nodes
 
           kubectl apply -f notepad/k8s/testing/ -l app=notepad
           kubectl rollout status deployment notepad-deployment-testing
