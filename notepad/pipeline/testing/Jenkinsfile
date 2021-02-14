@@ -69,13 +69,15 @@ podTemplate(label: 'testing', serviceAccount: 'jenkins',
           
           kubectl get deployments -o wide
 
-          kubectl rollout status deployment notepad-deployment-testing
+
 
           kubectl get service notepad-service-testing
           kubectl get endpoints notepad-service-testing
         """
       }
     }
+
+
 
     stage ('Run Acceptance Tests') {
       build job: 'notepad-acceptance-test', parameters: [
