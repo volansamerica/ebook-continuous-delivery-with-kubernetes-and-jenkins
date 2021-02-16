@@ -1,4 +1,4 @@
-podTemplate(label: 'release', 
+podTemplate(label: 'release', serviceAccount: 'jenkins',
   containers: [
     containerTemplate(name: 'kubectl', image: 'jorgeacetozi/kubectl:1.7.0', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'maven', image: 'jorgeacetozi/maven:3.5.0-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
