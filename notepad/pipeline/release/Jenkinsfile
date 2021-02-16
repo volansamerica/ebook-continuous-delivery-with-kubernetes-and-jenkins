@@ -31,11 +31,12 @@ podTemplate(label: 'release', serviceAccount: 'jenkins',
       container('maven') {
         sh """
           mkdir -p /root/.ssh
-          ls /home/jenkins
-          ls /home/jenkins/.ssh
+          ls -al /home/jenkins
+          ls -al /home/jenkins/.ssh
           cp /home/jenkins/.ssh/id_rsa /root/.ssh/id_rsa
-          chmod 777 /root/.ssh/id_rsa
+          chmod 400 /root/.ssh/id_rsa
           ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
+          ls -al /root/.ssh/known_hosts
           git clone git@github.com:volansamerica/notepad.git
           cd notepad
           git config --global user.email "jenkins@jorgeacetozi.com"
